@@ -44,7 +44,7 @@ export const signUp = async (req, res, next) => {
             }
         });
 
-    } catch (error) {
+    } catch (error) {   
         await session.abortTransaction()
         await session.endSession()
         next(error);
@@ -88,6 +88,7 @@ export const signIn = async (req, res, next) => {
         next(err)
     }
 }
+
 export const signOut = async (req, res, next) => {
 }
 

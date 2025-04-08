@@ -7,6 +7,9 @@ import {connectToDatabase} from "./database/dbconnect.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+// import {arcjectMiddleware} from "./middlewares/arcject.middleware.js";
+import cors from "cors";
+import workflowsRouter from "./routes/workflows.routes.js";
 
 const app = express();
 
@@ -14,10 +17,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(morgan("dev"))
+// app.use(arcjectMiddleware)
+app.use(cors({
+    origin: '*',
+    methods: '*',
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 
 app.use("/api/v1/auth",authRouter);
 app.use("/api/v1/users",userRouter)
 app.use("/api/v1/subscriptions",subscriptionRouter)
+app.use("/api/v1/workflows",workflowsRouter)
 
 app.use(errorMiddleware)
 

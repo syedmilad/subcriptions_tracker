@@ -13,12 +13,9 @@ export const authorize = async (req, res, next) => {
                 message: 'No token provided',
             })
         }
-        console.log({token})
-        console.log({"REQ": req.headers.authorization})
         const decode = await jwt.verify(token, JWT_SECRET);
-        console.log({"decode==>": decode})
+        console.log({decode: decode})
         const user = await User.findById(decode.userId)
-        console.log({"Log User==>": user})
         if(!user) {
             res.status(401).json({
                 message: 'Unauthorized',
