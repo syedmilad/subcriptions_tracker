@@ -18,11 +18,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(morgan("dev"))
 // app.use(arcjectMiddleware)
+
 app.use(cors({
-    origin: "https://finance-system-22vp.vercel.app/", // or "*" for all origins
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true // if you're using cookies or authorization headers
+    origin: "https://finance-system-22vp.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204
 }));
+app.options('*', cors())
 
 app.use("/api/v1/auth",authRouter);
 app.use("/api/v1/users",userRouter)
