@@ -44,7 +44,7 @@ export const signUp = async (req, res, next) => {
             }
         });
 
-    } catch (error) {   
+    } catch (error) {
         await session.abortTransaction()
         await session.endSession()
         next(error);
@@ -77,7 +77,7 @@ export const signIn = async (req, res, next) => {
         // token JWT
         const token = await jwt.sign({userId: user._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
 
-        return res.status(200).json({
+        res.status(200).json({
             message: "User sign in successfully",
             data: {
                 token: token,
