@@ -25,7 +25,7 @@ const errorMiddleware = (err, req, res, next) => {
             error = new Error(message.join(", "));
             error.statusCode = 400;
         }
-        res.status(err.statusCode || 500).json({success: false, error: error.message || "Server Error"});
+        return res.status(err.statusCode || 500).json({success: false, error: error.message || "Server Error"});
         //  Internal server error 500
     } catch (err) {
         next(err)
