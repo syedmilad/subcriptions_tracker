@@ -24,13 +24,13 @@ export const signUp = async (req, res, next) => {
             throw error;
         }
         // Hash Password
-        const salt = await bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(5);
         const hashPass = await bcrypt.hash(password, salt)
         const newUsers = await User.create([{name, email, password: hashPass}], {session})
         console.log("newUsers testing...", newUsers)
 
         // JWT token for client
-        const token = await jwt.sign({userId: newUsers[0]._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
+        const token = jwt.sign({userId: newUsers[0]._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
 
         await session.commitTransaction()
         await session.endSession()
