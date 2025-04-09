@@ -11,15 +11,15 @@ import morgan from "morgan";
 import cors from "cors";
 import workflowsRouter from "./routes/workflows.routes.js";
 
-const app = express();
+const index = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(morgan("dev"))
-// app.use(arcjectMiddleware)
+index.use(express.json());
+index.use(express.urlencoded({ extended: false }));
+index.use(cookieParser());
+index.use(morgan("dev"))
+// index.use(arcjectMiddleware)
 
-app.use(cors({
+index.use(cors({
     origin: "*", // Allow all (for testing only)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
@@ -27,22 +27,22 @@ app.use(cors({
     preflightContinue: false,
     optionsSuccessStatus: 204
 }));
-app.options('*', cors())
+index.options('*', cors())
 
-app.use("/api/v1/auth",authRouter);
-app.use("/api/v1/users",userRouter)
-app.use("/api/v1/subscriptions",subscriptionRouter)
-app.use("/api/v1/workflows",workflowsRouter)
+index.use("/api/v1/auth",authRouter);
+index.use("/api/v1/users",userRouter)
+index.use("/api/v1/subscriptions",subscriptionRouter)
+index.use("/api/v1/workflows",workflowsRouter)
 
-app.use(errorMiddleware)
+index.use(errorMiddleware)
 
-app.get("/",(req,res)=>{
+index.get("/",(req, res)=>{
     res.send("Welcome to Subscriptions tracker App")
 })
 
-app.listen(PORT, async ()=>{
+index.listen(PORT, async ()=>{
     console.log(`Subscriptions listening on port http://localhost:${PORT}`)
     await connectToDatabase()
 })
 
-export default app;
+export default index;

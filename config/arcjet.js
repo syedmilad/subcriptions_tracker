@@ -7,7 +7,7 @@ const aj = arcjet({
     key: ARCJET_KEY,
     characteristics: ["ip.src"], // Track requests by IP
     rules: [
-        // Shield protects your app from common attacks e.g. SQL injection
+        // Shield protects your index from common attacks e.g. SQL injection
         shield({mode: "LIVE"}),
         // Create a bot detection rule
         detectBot({
