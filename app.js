@@ -20,7 +20,7 @@ app.use(morgan("dev"))
 // app.use(arcjectMiddleware)
 
 app.use(cors({
-    origin: "https://finance-system-22vp.vercel.app",
+    origin: "*", // Allow all (for testing only)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
     credentials: true,
