@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="efc485c2-296b-45f9-8a80-5fcdb9253edf" name="Changes" comment="updated code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +93,7 @@
       <workItem from="1743197769165" duration="5766000" />
       <workItem from="1743361283138" duration="6261000" />
       <workItem from="1743589189269" duration="15715000" />
-      <workItem from="1743926570355" duration="23537000" />
+      <workItem from="1743926570355" duration="23760000" />
     </task>
     <task id="LOCAL-00001" summary="added routes and env file.">
       <option name="closed" value="true" />
@@ -135,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744137064469</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updated code.">
+      <option name="closed" value="true" />
+      <created>1744189779904</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744189779904</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
