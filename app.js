@@ -19,10 +19,9 @@ app.use(cookieParser());
 app.use(morgan("dev"))
 // app.use(arcjectMiddleware)
 app.use(cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    origin: "https://finance-system-22vp.vercel.app/", // or "*" for all origins
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true // if you're using cookies or authorization headers
 }));
 
 app.use("/api/v1/auth",authRouter);
