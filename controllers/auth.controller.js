@@ -30,7 +30,7 @@ export const signUp = async (req, res, next) => {
         console.log("newUsers testing...", newUsers)
 
         // JWT token for client
-        const token = jwt.sign({userId: newUsers[0]._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
+        const token = await jwt.sign({userId: newUsers[0]._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
 
         await session.commitTransaction()
         await session.endSession()
@@ -75,12 +75,12 @@ export const signIn = async (req, res, next) => {
         }
 
         // token JWT
-        // const token =  jwt.sign({userId: user._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
+        const token = await jwt.sign({userId: user._id}, JWT_SECRET, {expiresIn: JWT_EXPIRED_IN});
 
         return res.status(200).json({
             message: "User sign in successfully",
             data: {
-                // token: token,
+                token: token,
                 user: user
             }
         })
